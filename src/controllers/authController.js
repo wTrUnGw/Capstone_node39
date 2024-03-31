@@ -20,7 +20,7 @@ export const login = async (req, res) => {
     // nếu đã tồn tại
     if (existUser) {
       if (bcrypt.compareSync(mat_khau, existUser.mat_khau)) {
-        let token = createToken({nguoi_dung_id:existUser.nguoi_dung_id});
+        let token = createToken({ nguoi_dung_id: existUser.nguoi_dung_id });
 
         responseData(res, "Đăng Nhập Thành Công", token, 200);
       } else {

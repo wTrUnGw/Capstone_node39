@@ -1,8 +1,10 @@
 import { Sequelize } from "sequelize";
-const sequelize = new Sequelize("CapstoneExpress", "root", "1234",{
-    host: "localhost",
-    port: "3307",
-    dialect: "mysql"
+import config from "../config/config.js";
+
+const sequelize = new Sequelize(config.database,config.user,config.pass ,{
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect
 });
 try {
     await sequelize.authenticate();
